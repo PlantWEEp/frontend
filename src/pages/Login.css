@@ -1,0 +1,118 @@
+/* Login.css */
+.login-container {
+    display: flex;
+  }
+  
+  .left-side, .right-side {
+    width: 1440px;
+    height: 559px;
+  }
+  
+  .left-side {
+    background-color: var(--basic-blue) !important;
+  }
+  
+  .right-side {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+  }
+  
+  .center-box {
+    width: 516px;
+    height: 392px;
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+
+  .heading{
+    color : #4880FF;
+  }
+
+  .heading2{
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  
+  /* Login.css */
+
+  .input-group {
+    margin-top: 40px;
+  }
+  
+  .input-group label {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  .input-group input {
+    width: 516px;
+    height: 44px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+
+
+
+  /* Login.css */
+.input-group {
+    margin-top: 20px;
+  }
+  
+  .input-group label {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  .input-group input {
+    
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  .forgot-password {
+    display: inline-block;
+    margin-right: 0; 
+    margin-left: auto; 
+    font-size: 18px;
+    color: #a1a1a1; 
+    cursor: pointer;
+  }
+  
+  .forgot-password:hover {
+    text-decoration: underline;
+  }
+  
+
+
+
+
+  /* Login.css */
+.signin-button {
+    width: 516px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: var(--basic-blue) !important;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    opacity: 90%;
+  }
+  
+  .signin-button:hover {
+    background-color: #3666DD; /* Example button color on hover */
+  }
+  
