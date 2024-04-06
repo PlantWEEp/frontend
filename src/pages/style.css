@@ -1,0 +1,42 @@
+.sider-bar{
+    position: absolute;
+    top: 0;
+} 
+.primarycontainer {
+    width: calc(100% - 19%);
+    padding-top: 30px;
+    margin-left: auto;
+}
+.sider-bar .sc-JrDLc.gaTCvF.pro-sidebar.toggled .primarycontainer {
+    width: 100% !important;
+    padding-top: 32px;
+    margin-left: auto;
+}
+.fi-box {
+    display: flex;
+    justify-content: space-between;
+}
+.box-iocns{
+    padding: 18px 14px;
+    background-color: var(--light-blue);
+    border-radius: 7px;
+    height: 100%;
+}
+.box-iocns-green{
+    padding: 18px 17px;
+    background-color:#30fb7438;
+    border-radius: 7px;
+    height: 100%;
+}
+.viewBtn{
+    color: var(--basic-green);
+    margin-top: 35px;
+}
+.containerWapper {
+    width: 98%;
+}
+@media only screen and (max-width: 999px) {
+    .primarycontainer {
+        width: calc(100% - 27%); 
+    }
+  }

@@ -11,14 +11,16 @@
   --basic-green: #00B69B !important;
   --basic-white:#ffffff !important;
   --basic-bodycolor:#F5F6FA !important;
+  --light-blue: rgba(130, 128, 255, 0.36) !important;
 }
 
 a {
   font-weight: 500; 
   text-decoration: inherit;
+  font-size: 14px !important;
 }
-a:hover {
-  color: var(--text-black)
+p {
+  font-size: 14px !important;
 }
 
 body {

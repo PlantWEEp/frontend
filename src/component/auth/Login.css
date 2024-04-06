@@ -1,0 +1,112 @@
+.blue-white{
+  overflow: hidden;
+}
+.blue-bg {
+  position: relative;
+  background-color: var(--basic-blue) !important;
+}
+.blue-bg:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;  
+  height: 100%;  
+  background-image: url(../../assets/bg-image.png);
+  background-size: cover;  
+  background-position: center;  
+}
+
+.right-side {
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center-box {
+  max-width: 516px;
+  min-height: 392px;
+  background-color: var(--basic-white);
+  padding: 20px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.heading {
+  color: var(--basic-blue);
+}
+
+.heading2 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* Login.css */
+
+.input-group {
+  margin-top: 40px;
+}
+ 
+.input-group input {
+  width: 100%;
+  height: 44px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+/* Login.css */
+.input-group {
+  margin-top: 20px;
+}
+
+.input-group label {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.input-group input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.forgot-password {
+  display: inline-block;
+  margin-right: 0;
+  margin-left: auto;
+  font-size: 18px;
+  color: #a1a1a1;
+  cursor: pointer;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+/* Login.css */
+.signin-button {
+  width: 100%;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: var(--basic-blue) !important;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  opacity: 90%;
+}
+ 
+.labeldiv{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.right-div{
+  height: 100vh;
+}

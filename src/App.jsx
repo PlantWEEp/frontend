@@ -2,16 +2,14 @@ import './App.css';
 import { Routes, Route} from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
 import Questions from './pages/Questions';
-import Students from './pages/Students';
-import Login from './pages/Login';
-
-
+import Students from './pages/Students';  
+import Login from "./component/auth/Login.jsx"
 
 function App() { 
 
   return (
     <>
-    <Routes>
+    <Routes> 
         <Route path="admin/login" element={<Login/>}/>
         <Route path="admin/dashboard" element={<Dashboard/>}/>
         <Route path="admin/questions" element={<Questions/>}/>
