@@ -9,6 +9,8 @@
   --bg-light-blue: #E9F0FF !important;
   --gold-color: #FFCA45 !important;
   --basic-green: #00B69B !important;
+  --basic-white:#ffffff !important;
+  --basic-bodycolor:#F5F6FA !important;
 }
 
 a {
@@ -21,7 +23,9 @@ a:hover {
 
 body {
   font-family: "Nunito Sans", sans-serif;  
-  color: var(--text-black)
+  color: var(--text-black);
+  background-color : var(--basic-bodycolor);
+
 }
 p li{
   font-size: 14px;
