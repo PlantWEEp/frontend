@@ -1,6 +1,10 @@
 .sider-bar {
   position: absolute;
   top: 0;
+  box-shadow: 0px 0px 15.3px 0px #0000000f;
+}
+.jGeaPm .head-div {
+  padding: 15px 30px !important;
 }
 .primarycontainer {
   width: calc(100% - 19%);
@@ -41,57 +45,69 @@
 
 .container11 {
   margin-top: 40px;
-  border: 1px solid black; 
+  border: 1px solid var(--bg-light);
   background: #fff;
-  padding:32px;
+  padding: 32px;
+  box-shadow: 0px 0px 15.3px 0px #0000000f;
+  border-radius: var(--border-small-radius);
 }
 
-thead {
-  background-color: #F1F4F9; /* Set the background color */
-}
-
-th{
+th {
   font-size: 14px;
   font-weight: 700;
-  width: auto;
-  height: 19px;
+  padding: 16px 15px !important;
+  background-color: var(--table-head) !important;
+  
 }
 
-
-
-td{
+td {
   font-size: 14px;
   font-weight: 600;
-  width: auto;
-  height : 19px;
-  padding: 10px
+  padding: 16px 15px !important;
 }
-
-.headersearch{
-display: flex;
-justify-content: space-between;
-margin: 26px 0px;
-
+.headersearch {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 26px;
+  align-items: center;
 }
-
+.std {
+  font-weight: 700;
+}
 .search-container {
   position: relative;
 }
-
+.search-container input {
+  padding: 10px 0px 10px 41px;
+  background: var(--search-bg);
+  border-radius: 999px;
+  font-size: 15px;
+  border: 1px solid var(--search-border-color);
+}
 .search-icon {
   position: absolute;
-  top: 25%;
-  right: 10px;
+  top: 49%;
+  left: 13px;
   transform: translateY(-50%);
-  width: 24px;
-  height: 24px;
-  fill: none;
-  stroke: #333; /* Change the color as needed */
-  stroke-width: 2;
-  pointer-events: none;
+  width: 20px;
+  height: 20px;
+  color: var(--search-border-color);
 }
-
-
+.actionEdit {
+  padding: 7px 11px;
+  border: 1px solid var(--search-border-color);
+  border-radius: var(--border-icon-radius);
+  color: #000000;
+}
+.actionWapper {
+  display: flex;
+  gap: 7px;
+}
+button.actionEdit {
+  background: var(--danger-red);
+  color: #fff;
+}
+/* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 
 @media only screen and (max-width: 1182px) {
   .containerWapper {
@@ -127,11 +143,3 @@ margin: 26px 0px;
     display: none;
   }
 }
-
-
-
-
-
-
-
-

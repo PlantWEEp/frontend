@@ -1,6 +1,6 @@
 .gaTCvF {
   background-color: var(--basic-white) !important;
-  color: var(--text-black) !important; 
+  color: var(--text-black) !important;
 }
 
 .blue {
@@ -13,12 +13,13 @@
   display: flex;
   justify-content: flex-end;
   width: 100%;
+  box-shadow: 0px 0px 15.3px 0px #0000000f;
 }
 
 .profile {
   display: flex;
   align-items: center;
-} 
+}
 
 .profile-info {
   color: var(--text-black) !important;
@@ -36,7 +37,7 @@
   font-size: 12px;
   width: 37px;
   height: 16px;
-} 
+}
 .icon-suffix {
   display: none;
 }

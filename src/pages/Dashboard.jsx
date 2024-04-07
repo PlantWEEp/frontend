@@ -1,22 +1,49 @@
-
-
 import React, { useState } from "react";
 import Header from "../component/Navbar/Header";
 import Sidebar from "../component/Navbar/Sidebar";
 import "./style.css";
 import { Link } from "react-router-dom";
+import { MdDelete } from "react-icons/md";
+import { FaRegEye } from "react-icons/fa";
+import { FaRegEdit } from "react-icons/fa";
 
 export default function Dashboard() {
   const [searchTerm, setSearchTerm] = useState("");
 
   const studentsData = [
-    { id: 1, firstName: "Mark", emailid: "abc@gmail.com", UPITransactionId: "123456789012" },
-    { id: 2, firstName: "Jacob", emailid: "yjhd@gmail.com", UPITransactionId: "123453589012" },
-    { id: 3, firstName: "Larry", emailid: "nvbn@gmail.com", UPITransactionId: "12345435789012" }
+    {
+      id: 1,
+      firstName: "Mark",
+      emailid: "abc@gmail.com",
+      UPITransactionId: "123456789012",
+    },
+    {
+      id: 2,
+      firstName: "Jacob",
+      emailid: "yjhd@gmail.com",
+      UPITransactionId: "3453589012",
+    },
+    {
+      id: 3,
+      firstName: "Larry",
+      emailid: "nvbn@gmail.com",
+      UPITransactionId: "2345435789012",
+    },
   ];
 
-  const filteredStudents = studentsData.filter(student =>
-    student.firstName.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredStudents = studentsData.filter(
+    (student) =>
+      student.firstName
+        .trim()
+        .toLowerCase()
+        .includes(searchTerm.trim().toLowerCase()) ||
+      student.UPITransactionId.trim()
+        .toLowerCase()
+        .includes(searchTerm.trim().toLowerCase()) ||
+      student.emailid
+        .trim()
+        .toLowerCase()
+        .includes(searchTerm.trim().toLowerCase())
   );
 
   return (
@@ -144,10 +171,9 @@ export default function Dashboard() {
               </div>
             </div>
 
-
             <div class="container11">
               <div class="headersearch">
-                <h3 class="std">Total Registered Students</h3>
+                <h5 class="std">Total Registered Students</h5>
                 <div className="search-container">
                   <input
                     type="text"
@@ -173,9 +199,9 @@ export default function Dashboard() {
                 <thead>
                   <tr>
                     <th>Serial No</th>
-                    <th>First Name</th>
-                    <th>Email-Id</th>
                     <th>Actions</th>
+                    <th>Student Name</th>
+                    <th>Email-Id</th>
                     <th>UPI Transaction Id</th>
                   </tr>
                 </thead>
@@ -183,59 +209,25 @@ export default function Dashboard() {
                   {filteredStudents.map((student) => (
                     <tr key={student.id}>
                       <td>{student.id}</td>
+                      <td>
+                        <div class="actionWapper">
+                        <Link class="actionEdit" to={`/students/${student.id}`}>
+                        <FaRegEdit />
+                        </Link>
+                        <Link
+                          class="actionEdit"
+                          to={`/students/edit/${student.id}`}
+                        >
+                          <FaRegEye />
+                        </Link>
+                        <button class="actionEdit">
+                        <MdDelete />
+                        </button>
+                        </div>
+                      </td>
                       <td>{student.firstName}</td>
 
                       <td>{student.emailid}</td>
-                      <td>
-                        <Link to={`/students/${student.id}`}>
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="16"
-                            height="16"
-                            fill="currentColor"
-                            className="bi bi-eye"
-                            viewBox="0 0 16 16"
-                          >
-                            <path d="M8 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm7-4a1 1 0 0 0-1-1h-1.196a3.001 3.001 0 0 0-5.608 0H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h1.196a3.001 3.001 0 0 0 5.608 0H14a1 1 0 0 0 1-1V5z" />
-                          </svg>
-                        </Link>
-                        <Link to={`/students/edit/${student.id}`}>
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="16"
-                            height="16"
-                            fill="currentColor"
-                            className="bi bi-pencil"
-                            viewBox="0 0 16 16"
-                          >
-                            <path d="M11.293 2.293a1 1 0 0 1 1.414 0l1 1a1 1 0 0 1 0 1.414l-8 8a1 1 0 0 1-.39.242l-3 1a1 1 0 0 1-1.27-1.27l1-3a1 1 0 0 1 .242-.391l8-8zM12 3l-8 8-.3 1.2 1.2-.3 8-8L12 3z" />
-                            <path
-                              fillRule="evenodd"
-                              d="M4.73 11.73a1 1 0 0 0 1.414 0l6-6a1 1 0 0 0 0-1.414l-1-1a1 1 0 0 0-1.414 0l-6 6a1 1 0 0 0 0 1.414l1 1z"
-                            />
-                          </svg>
-                        </Link>
-                        <button>
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="16"
-                            height="16"
-                            fill="currentColor"
-                            className="bi bi-trash"
-                            viewBox="0 0 16 16"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M5.5 3.5a.5.5 0 0 1 1 0V4h1a.5.5 0 0 1 0 1H6v1a.5.5 0 0 1-1 0V5H4a.5.5 0 0 1 0-1h1v-1zm5 .5a.5.5 0 0 0-1 0v9a.5.5 0 0 0 1 0v-9zM9 5V4a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1h-3z"
-                            />
-                            <path
-                              fillRule="evenodd"
-                              d="M3.5 5.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 0 1h-8a.5.5 0 0 1-.5-.5zM8 9a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0v-4a.5.5 0 0 1 .5-.5zm-4.5-.5a.5.5 0 0 1 1 0v4a.5.5 0 0 1-1 0v-4z"
-                            />
-                          </svg>
-
-                        </button>
-                      </td>
                       <td>{student.UPITransactionId}</td>
                     </tr>
                   ))}
@@ -248,6 +240,3 @@ export default function Dashboard() {
     </>
   );
 }
-
-
-
