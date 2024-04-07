@@ -38,6 +38,61 @@
 .jGeaPm .head-div {
   padding: 15px 30px;
 }
+
+.container11 {
+  margin-top: 40px;
+  border: 1px solid black; 
+  background: #fff;
+  padding:32px;
+}
+
+thead {
+  background-color: #F1F4F9; /* Set the background color */
+}
+
+th{
+  font-size: 14px;
+  font-weight: 700;
+  width: auto;
+  height: 19px;
+}
+
+
+
+td{
+  font-size: 14px;
+  font-weight: 600;
+  width: auto;
+  height : 19px;
+  padding: 10px
+}
+
+.headersearch{
+display: flex;
+justify-content: space-between;
+margin: 26px 0px;
+
+}
+
+.search-container {
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  top: 25%;
+  right: 10px;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: #333; /* Change the color as needed */
+  stroke-width: 2;
+  pointer-events: none;
+}
+
+
+
 @media only screen and (max-width: 1182px) {
   .containerWapper {
     width: calc(100% - 14%) !important;
@@ -72,3 +127,11 @@
     display: none;
   }
 }
+
+
+
+
+
+
+
+
