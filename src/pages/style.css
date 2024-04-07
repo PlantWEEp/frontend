@@ -107,6 +107,32 @@ button.actionEdit {
   background: var(--danger-red);
   color: #fff;
 }
+
+.studentdeletebutton{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width:100%
+}
+
+.deletebutton{
+  padding : 14px 25px !important;
+  background-color: var(--light-red) !important;
+  border: 0.6px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.Addbutton{
+  padding : 14px 25px !important;
+  background-color: var(--success-green) !important;
+  border: 0.6px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 700;
+  margin-left: 800px;
+}
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 
 @media only screen and (max-width: 1182px) {
