@@ -219,6 +219,11 @@ input[type="text"] {
   background-color: var(--search-border-color) !important;
 }
 
+.labelfor{
+  margin-top: 30px;
+
+}
+
 .submitcancelbutton{
   margin-top: 30px;
   display: flex;
