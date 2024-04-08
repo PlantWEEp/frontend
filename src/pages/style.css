@@ -207,7 +207,7 @@ svg {
   font-size: 14px;
   font-weight: 600;
   border: 1px solid var(--search-border-color);
-  background-color: var(--search-border-color) !important;
+  background-color: var(--input-backgroundcolor) !important;
   padding: 5px;
 }
 
@@ -216,7 +216,7 @@ input[type="text"] {
   padding: 14px;
   margin-top: 30px;
   border: 1px solid var(--search-border-color);
-  background-color: var(--search-border-color) !important;
+  background-color: var(--input-backgroundcolor) !important;
 }
 
 .labelfor{
@@ -234,12 +234,14 @@ input[type="text"] {
   border: 1px solid var(--basic-blue) !important ;
   border-radius: 10px;
   background-color: var(--basic-blue) !important;
+  color: var(--basic-white) !important;
 }
 .cancelbutton{
   padding:14px 40px 15px 41px !important;
   border: 1px solid var(--basic-blue) !important;
   border-radius: 10px;
   background-color: var(--basic-white) !important;
+  color: var(--basic-blue) !important;
 }
 
 
