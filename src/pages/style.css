@@ -219,6 +219,25 @@ input[type="text"] {
   background-color: var(--search-border-color) !important;
 }
 
+.submitcancelbutton{
+  margin-top: 30px;
+  display: flex;
+  gap: 35px
+}
+.submitbutton{
+  padding:14px 40px 15px 41px !important;
+  border: 1px solid var(--basic-blue) !important ;
+  border-radius: 10px;
+  background-color: var(--basic-blue) !important;
+}
+.cancelbutton{
+  padding:14px 40px 15px 41px !important;
+  border: 1px solid var(--basic-blue) !important;
+  border-radius: 10px;
+  background-color: var(--basic-white) !important;
+}
+
+
 
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 
