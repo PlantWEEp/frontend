@@ -5,6 +5,7 @@ import Questions from './pages/Questions';
 import Students from './pages/Students.jsx';
 import Login from "./component/auth/Login.jsx";
 import Addquestions from './pages/Addquestions.jsx';
+import EditUserPage from './component/actions/EditUserPage.jsx';
 
 function App() { 
 
@@ -16,6 +17,7 @@ function App() {
         <Route path="/admin/questions" element={<Questions/>}/>
         <Route path="/admin/students" element={<Students/>}/>
         <Route path="/admin/addquestions" element={<Addquestions/>}/>
+        <Route path="/admin/student/edit/:id/" element={<EditUserPage/>}  />
     </Routes>
     </>
   )

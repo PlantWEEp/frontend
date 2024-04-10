@@ -4,7 +4,7 @@ import "./Login.css";
 export default function Login() {
   return (
     <div class="container-fiuld blue-white">
-      <div className="row">
+      <div class="row">
         <div class="col-md-6 blue-bg"></div>
         <div class="col-md-6 ">
           <div class="d-flex justify-content-center align-items-center right-div">

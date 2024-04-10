@@ -9,7 +9,7 @@ import { jsxDEV } from "react/jsx-dev-runtime";
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  
     <BrowserRouter>
      <App /> 
      <ToastContainer
@@ -18,6 +18,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       pauseOnFocusLoss
       draggable
       pauseOnHover/>
-   </BrowserRouter>
-  </React.StrictMode>,
+   </BrowserRouter> 
 )

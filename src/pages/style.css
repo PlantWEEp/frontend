@@ -123,12 +123,16 @@ td {
 button.actionEdit {
   background: var(--danger-red);
   color: #fff;
-}
+} 
+/* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                  Addquestions
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
+
 
 .studentdeletebutton {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: center; 
   width: 100%
 }
 
@@ -147,8 +151,7 @@ button.actionEdit {
   border: 0.6px;
   border-radius: 4px;
   font-size: 14px;
-  font-weight: 700;
-  margin-left: 800px;
+  font-weight: 700; 
 }
 
 .question-set {
@@ -186,22 +189,11 @@ button.actionEdit {
   align-items: center;
   width: 100%;
   margin-right: 30px;
-}
-
-svg {
-  font-size: 25px;
-}
+} 
 
 .listofquestions{
   margin-left: 30px;
-}
-
-.sectionName{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
+} 
 
 .selectCategory{
   font-size: 14px;
@@ -211,23 +203,28 @@ svg {
   padding: 5px;
 }
 
-input[type="text"] {
+.sectionName input {
   width: 100%;
   padding: 14px;
-  margin-top: 30px;
+  margin-top: 18px;
   border: 1px solid var(--search-border-color);
+  border-radius: var(--border-icon-radius) !important;
   background-color: var(--input-backgroundcolor) !important;
 }
-
+.sectionName select.form-select {
+  width: 100%;
+  padding: 14px;
+  margin-top: 18px;
+  border-radius: var(--border-icon-radius) !important;
+}
 .labelfor{
-  margin-top: 30px;
-
+  margin-top: 30px; 
 }
 
 .submitcancelbutton{
-  margin-top: 30px;
+  margin-top: 20px;
   display: flex;
-  gap: 35px
+  gap: 20px;
 }
 .submitbutton{
   padding:14px 40px 15px 41px !important;
@@ -243,9 +240,54 @@ input[type="text"] {
   background-color: var(--basic-white) !important;
   color: var(--basic-blue) !important;
 }
-
-
-
+/* table style */
+table {
+  width: 100%;
+}
+.copyWrapper {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  background: var(--light-blue);
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  border-radius: 4px; 
+  cursor: pointer;
+}
+.pagination {
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin: 29px auto;
+  background: var(--table-head);
+  padding: 18px; 
+  border-radius: var(--border-small-radius);
+}
+.pageBtn {
+  padding: 4px 12px;
+  background: var(--basic-green);
+  color: #fff;
+  border: none;
+  border-radius: var(--border-icon-radius);
+}
+.copyWrapper:active {
+  background: var(--basic-bodycolor);
+}
+td,th {
+  white-space: nowrap;
+}
+select.selctVl {
+  padding: 7px;
+  border-radius: 3px;
+  border-color: var(--search-border-color);
+  background-color: var(--search-bg);
+}
+.selctVl option {
+  border-radius: 3px;
+  border-color: var(--search-border-color);
+  background-color: var(--search-bg);
+}
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 
 @media only screen and (max-width: 1182px) {

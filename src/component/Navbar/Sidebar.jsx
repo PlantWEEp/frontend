@@ -1,6 +1,7 @@
-//Sidebar.jsx
+// Sidebar.jsx
 import React from 'react';
-import "./Style.css" ;
+import { Link } from 'react-router-dom'; // Import Link
+import "./Style.css";
 import {
   CDBSidebar,
   CDBSidebarContent,
@@ -11,21 +12,27 @@ import {
 } from 'cdbreact';
 
 export default function Sidebar() {
+  const menubar = [
+    { name: "Dashboard", url: "/", icon: "sticky-note" },
+    { name: "List of question", url: "/admin/questions", icon: "list" },
+    { name: "List of students", url: "/admin/students", icon: "user" }
+  ];
+
   return (
     <div style={{ height: '100vh' }}>
-      <CDBSidebar style={{ height: '100%', }}>
-        <CDBSidebarHeader prefix={<i className="fa fa-bars" />}><span class="blue">My</span> Tution <span class="blue">App</span></CDBSidebarHeader>
+      <CDBSidebar style={{ height: '100%' }}>
+        <CDBSidebarHeader prefix={<i class="fa fa-bars" />}><span class="blue">My</span> Tution <span class="blue">App</span></CDBSidebarHeader>
         <CDBSidebarContent>
           <CDBSidebarMenu>
-            <CDBSidebarMenuItem icon="sticky-note">Dashboard</CDBSidebarMenuItem>
-            <CDBSidebarMenuItem icon="th-large">List of Questions</CDBSidebarMenuItem>
-            <CDBSidebarMenuItem icon="credit-card">List Of Students</CDBSidebarMenuItem>
+            {menubar.map(item => (
+              <Link to={item.url} key={item.name}><CDBSidebarMenuItem icon={item.icon}>{item.name}</CDBSidebarMenuItem></Link>
+            ))}
           </CDBSidebarMenu>
         </CDBSidebarContent>
 
         <CDBSidebarFooter>
           <div
-            className="sidebar-btn-wrapper"
+            class="sidebar-btn-wrapper"
             style={{ padding: '10px 3px' }}
           >
             <CDBSidebarMenuItem icon="cog">Settings</CDBSidebarMenuItem>
@@ -34,8 +41,5 @@ export default function Sidebar() {
         </CDBSidebarFooter>
       </CDBSidebar>
     </div>
-  )
+  );
 }
-
-
-
