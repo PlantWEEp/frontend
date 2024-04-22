@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import Header from "../Navbar/Header";
-import Sidebar from "../Navbar/Sidebar";
+import Header from "../../Navbar/Header";
+import Sidebar from "../../Navbar/Sidebar";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
-import Error from "../helper/Error";
-import Loading from "../helper/Loading";
+import Error from "../../helper/Error";
+import Loading from "../../helper/Loading";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
