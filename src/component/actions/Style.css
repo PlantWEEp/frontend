@@ -1,0 +1,38 @@
+.editUser { 
+    margin-top: 36px;
+}
+.editUser input {
+    width: 100%;
+    padding: 10px;
+    border-radius: var(--border-icon-radius);
+    margin: 5px 0;
+    background: #4880ff0f;
+    border: 1px solid #d4d4d4;
+}
+.editUserbtn {
+    width: 100%;
+    margin-top: 26px; 
+    margin-inline: auto;
+    padding: 13px;
+    font-size: 16px;
+    background: var(--basic-blue);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+}
+.btnn{
+    width: 65%;
+    margin-left: auto;
+}
+.editCancel {
+    width: 100%;
+    margin-top: 26px; 
+    margin-inline: auto;
+    padding: 13px;
+    font-size: 16px;
+    border:1px solid var(--basic-blue);
+    color: var(--basic-blue);; 
+    border-radius: 4px;
+    font-weight: 600;
+}

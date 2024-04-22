@@ -7,19 +7,19 @@
 //   return (
 //     <>
 //       <div>
-//         <div class="top-bar">
+//         <div className="top-bar">
 //           <Header />
 //         </div>
-//         <div class="sider-bar">
+//         <div className="sider-bar">
 //           <Sidebar />
 //         </div>
-//         <div class="primarycontainer">
-//           <div class="containerWapper">
-//             <div class="backtoquestionbutton">
+//         <div className="primarycontainer">
+//           <div className="containerWapper">
+//             <div className="backtoquestionbutton">
 //             <FaArrowLeft />
-//               <h4 class='listofquestions'>List of Questions</h4>
+//               <h4 className='listofquestions'>List of Questions</h4>
 //             </div>
-//             <div class="container11">
+//             <div className="container11">
 
 //             </div>
 //           </div>
@@ -38,27 +38,27 @@ export default function Addquestions() {
   return (
     <>
       <div>
-        <div class="top-bar">
+        <div className="top-bar">
           <Header />
         </div>
-        <div class="sider-bar">
+        <div className="sider-bar">
           <Sidebar />
         </div>
-        <div class="primarycontainer">
-          <div class="containerWapper">
-            <div class="backtoquestionbutton">
+        <div className="primarycontainer">
+          <div className="containerWapper">
+            <div className="backtoquestionbutton">
               <FaArrowLeft />
-              <h4 class="listofquestions">List of Questions</h4>
+              <h4 className="listofquestions">List of Questions</h4>
             </div>
-            <div class="container11">
-              <div class="sectionName">
-                <div class="row">
-                  <div class="col-md-6">
+            <div className="container11">
+              <div className="sectionName">
+                <div className="row">
+                  <div className="col-md-6">
                     <input type="text" placeholder="Add secrion name" />
                   </div>
-                  <div class="col-md-6">
+                  <div className="col-md-6">
                     <select
-                      class="form-select"
+                      className="form-select"
                       aria-label="Default select example"
                     >
                       <option selected>Open this select menu</option>
@@ -70,38 +70,38 @@ export default function Addquestions() {
                 </div>
               </div>
 
-              <div class="sectionName">
+              <div className="sectionName">
                 <input
                   type="text"
                   placeholder="Please add the questions here"
                 />
               </div>
-              <div class="sectionName">
+              <div className="sectionName">
                 <input
                   type="text"
                   placeholder="Please enter the correct answer in this place"
                 />
               </div>
 
-              <div class="row sectionName">
-                <label class="labelfor">
+              <div className="row sectionName">
+                <label className="labelfor">
                   Please enter the incorrect options here:
                 </label>
-                <div class="col-md-4">
+                <div className="col-md-4">
                   <input
                     type="text"
                     placeholder="Incorrect option one"
                     id="incorrectOption1"
                   />
                 </div>
-                <div class="col-md-4">
+                <div className="col-md-4">
                   <input
                     type="text"
                     placeholder="Incorrect option two"
                     id="incorrectOption2"
                   />
                 </div>
-                <div class="col-md-4">
+                <div className="col-md-4">
                   <input
                     type="text"
                     placeholder="Incorrect option three"
@@ -110,11 +110,11 @@ export default function Addquestions() {
                 </div>
               </div>
 
-              <div class="submitcancelbutton">
-                <button class="submitbutton" type="submit">
+              <div className="submitcancelbutton">
+                <button className="submitbutton" type="submit">
                   Submit
                 </button>
-                <button class="cancelbutton" type="button">
+                <button className="cancelbutton" type="button">
                   Cancel
                 </button>
               </div>

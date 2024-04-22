@@ -288,6 +288,44 @@ select.selctVl {
   border-color: var(--search-border-color);
   background-color: var(--search-bg);
 }
+
+/* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
+.profileWapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  width: 50%;
+  border-radius: 6px;
+  margin: auto;
+  padding: 20px;
+  box-shadow: 0px 1px 8px 3px #0000000a;
+}
+.boxPro {
+  padding: 10px 16px;
+  background: var(--light-blue);
+  border-radius: var(--border-icon-radius);
+}
+.profileBg {
+  background: var(--basic-green);
+  height: 160px;
+  width: 100%;
+  border-radius: var(--border-small-radius);
+}
+.boxProLogn{
+  margin-top: 1rem;
+  padding: 10px 16px;
+  background: var(--light-blue);
+  border-radius: var(--border-icon-radius);
+}
+.tableWapper {
+  overflow: auto;
+  min-height: 300px;
+}
+
+
+
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 
 @media only screen and (max-width: 1182px) {

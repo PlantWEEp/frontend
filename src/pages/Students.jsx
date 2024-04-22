@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Header from "../component/Navbar/Header";
 import Sidebar from "../component/Navbar/Sidebar";
 import "./style.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { MdDelete } from "react-icons/md";
 import { FaRegEye } from "react-icons/fa";
 import { FaRegEdit } from "react-icons/fa";
@@ -13,25 +13,45 @@ function Students() {
   const [searchTerm, setSearchTerm] = useState("");
   const [column, setColumn] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState([5]);
+  const [itemsPerPage, setItemsPerPage] = useState(5);
   const [copied, setCopied] = useState(false);
+  const [studentsData, setStudentsData] = useState([]); 
+  const [loading, setLoading] = useState(true);  
+  const [error, setError] = useState(null);  
+
+  //api call
+  const navigate = useNavigate();
+
   useEffect(() => {
+    const token = localStorage.getItem("token");
+    console.log("tokeeen", "Bearer", token);
+    if (!token) {
+      navigate("/login");
+      return;
+    } 
     axios
-      .get("/api/v1/student/get-student")
+      .get(`/api/v1/student/get-student`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .then((response) => {
-        console.log(response.data);
-        setColumn(response.data);
+        console.log("Admin profile response:", response.data);
+        setStudentsData(response.data);
+        setLoading(false);
       })
       .catch((error) => {
-        console.error("Error fetching data:", error);
+        console.error("Error fetching student data:", error);
+        setError(error.message);
+        setLoading(false);
       });
-  }, []);
+  }, [navigate]);
 
   const handleDeleteAll = () => {
     setStudentsData([]);
   };
 
-  const filteredStudents = column.filter((student) => {
+  const filteredStudents = studentsData.filter((student) => {
     const searchTermLowerCase = searchTerm.trim().toLowerCase();
     return Object.values(student).some(
       (value) =>
@@ -39,7 +59,8 @@ function Students() {
         value.toLowerCase().includes(searchTermLowerCase)
     );
   });
-  //copy cilp board
+
+  //copy clipboard
   const handleCopy = (password) => {
     navigator.clipboard
       .writeText(password)
@@ -49,16 +70,18 @@ function Students() {
       })
       .catch((err) => console.error("Failed to copy:", err));
   };
+
   // Pagination logic
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = filteredStudents.slice(
-    indexOfFirstItem,
-    indexOfLastItem
-  );
+  const currentItems = filteredStudents.slice(indexOfFirstItem, indexOfLastItem);
+
+  console.log(currentItems,"currentItems");
+
   const handleItemsPerPageChange = (event) => {
     setItemsPerPage(parseInt(event.target.value));
   };
+
   // Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
@@ -83,9 +106,9 @@ function Students() {
               <div className="headersearch">
                 <h5 className="std">Total Registered Students</h5>
 
-                <div class="d-flex gap-3 align-items-center">
+                <div className="d-flex gap-3 align-items-center">
                   <select
-                    class="selctVl"
+                    className="selctVl"
                     value={itemsPerPage}
                     onChange={handleItemsPerPageChange}
                   >
@@ -115,7 +138,7 @@ function Students() {
                   </div>
                 </div>
               </div>
-              <div class="tableWapper">
+              <div className="tableWapper">
                 <table>
                   <thead>
                     <tr>
@@ -133,20 +156,20 @@ function Students() {
                     {currentItems.map((user, index) => (
                       <tr key={index}>
                         <td>
-                          <div class="actionWapper"> 
-                              <Link
-                                className="actionEdit"
-                                to={`/admin/student/edit/${user._id}`}
-                              >
-                                <FaRegEdit />
-                              </Link> 
+                          <div className="actionWapper">
                             <Link
-                              class="actionEdit"
+                              className="actionEdit"
+                              to={`/admin/student/edit/${user._id}`}
+                            >
+                              <FaRegEdit />
+                            </Link>
+                            <Link
+                              className="actionEdit"
                               to={`/students/edit/${user._id}`}
                             >
                               <FaRegEye />
                             </Link>
-                            <button class="actionEdit">
+                            <button className="actionEdit">
                               <MdDelete />
                             </button>
                           </div>
@@ -160,7 +183,7 @@ function Students() {
                             {user.password}
                             <span
                               onClick={() => handleCopy(user.password, index)}
-                              class="copyBtn"
+                              className="copyBtn"
                             >
                               {copied === index ? "Copy" : <IoCopyOutline />}
                             </span>
@@ -178,7 +201,7 @@ function Students() {
                   length: Math.ceil(filteredStudents.length / itemsPerPage),
                 }).map((_, index) => (
                   <button
-                    class="pageBtn"
+                    className="pageBtn"
                     key={index}
                     onClick={() => paginate(index + 1)}
                   >
@@ -190,8 +213,6 @@ function Students() {
           </div>
         </div>
       </div>
-
-      {/* Pagination */}
     </>
   );
 }

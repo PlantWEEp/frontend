@@ -49,26 +49,26 @@ export default function Dashboard() {
   return (
     <>
       <div>
-        <div class="top-bar">
+        <div className="top-bar">
           <Header />
         </div>
-        <div class="sider-bar">
+        <div className="sider-bar">
           <Sidebar />
         </div>
-        <div class="primarycontainer">
-          <div class="containerWapper">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="fi-box">
+        <div className="primarycontainer">
+          <div className="containerWapper">
+            <div className="row">
+              <div className="col-md-6">
+                <div className="card">
+                  <div className="card-body">
+                    <div className="fi-box">
                       <div>
                         <div>Total Students</div>
-                        <div class="d-flex align-items-center gap-3 my-2">
+                        <div className="d-flex align-items-center gap-3 my-2">
                           <h3>150</h3>Students
                         </div>
                         <Link>
-                          <div class="d-flex gap-2 viewBtn">
+                          <div className="d-flex gap-2 viewBtn">
                             <svg
                               width="24"
                               height="24"
@@ -85,7 +85,7 @@ export default function Dashboard() {
                           </div>
                         </Link>
                       </div>
-                      <div class="box-iocns">
+                      <div className="box-iocns">
                         <svg
                           width="32"
                           height="24"
@@ -112,17 +112,17 @@ export default function Dashboard() {
                   </div>
                 </div>
               </div>
-              <div class="col-md-6">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="fi-box">
+              <div className="col-md-6">
+                <div className="card">
+                  <div className="card-body">
+                    <div className="fi-box">
                       <div>
                         <div>Total Questions</div>
-                        <div class="d-flex align-items-center gap-3 my-2">
+                        <div className="d-flex align-items-center gap-3 my-2">
                           <h3>675</h3>Questions
                         </div>
                         <Link>
-                          <div class="d-flex gap-2 viewBtn">
+                          <div className="d-flex gap-2 viewBtn">
                             <svg
                               width="24"
                               height="24"
@@ -139,7 +139,7 @@ export default function Dashboard() {
                           </div>
                         </Link>
                       </div>
-                      <div class="box-iocns-green">
+                      <div className="box-iocns-green">
                         <svg
                           width="32"
                           height="32"
@@ -171,10 +171,10 @@ export default function Dashboard() {
               </div>
             </div>
 
-            <div class="container11">
-              <div class="headersearch">
-                <h5 class="std">Total Registered Students</h5>
-                <div class="search-container">
+            <div className="container11">
+              <div className="headersearch">
+                <h5 className="std">Total Registered Students</h5>
+                <div className="search-container">
                   <input
                     type="text"
                     placeholder="Search Here"
@@ -182,7 +182,7 @@ export default function Dashboard() {
                   />
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    class="search-icon"
+                    className="search-icon"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -195,7 +195,7 @@ export default function Dashboard() {
                   </svg>
                 </div>
               </div>
-              <table class="table">
+              <table className="table">
                 <thead>
                   <tr>
                     <th>Serial No</th>
@@ -210,17 +210,17 @@ export default function Dashboard() {
                     <tr key={student.id}>
                       <td>{student.id}</td>
                       <td>
-                        <div class="actionWapper">
-                        <Link class="actionEdit" to={`/students/${student.id}`}>
+                        <div className="actionWapper">
+                        <Link className="actionEdit" to={`/students/${student.id}`}>
                         <FaRegEdit />
                         </Link>
                         <Link
-                          class="actionEdit"
+                          className="actionEdit"
                           to={`/students/edit/${student.id}`}
                         >
                           <FaRegEye />
                         </Link>
-                        <button class="actionEdit">
+                        <button className="actionEdit">
                         <MdDelete />
                         </button>
                         </div>
