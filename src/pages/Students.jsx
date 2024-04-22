@@ -165,7 +165,7 @@ function Students() {
                             </Link>
                             <Link
                               className="actionEdit"
-                              to={`/students/edit/${user._id}`}
+                              to={`/admin/student/view/${user._id}`}
                             >
                               <FaRegEye />
                             </Link>

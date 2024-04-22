@@ -36,3 +36,22 @@
     border-radius: 4px;
     font-weight: 600;
 }
+
+/* xxxxxxxxxxxxxxxxxxxx 
+view
+xxxxxxxxxxxxxxxxxxxxxx*/
+.inputClasszxv {
+    display: flex;
+    gap: 21px;
+    padding: 9px;
+    border: 1px solid #000;
+    margin: 12px 0;
+    border-radius: 4px;
+}
+.goBack {
+    background: var(--basic-blue);
+    padding: 10px 30px;
+    border-radius: var(--border-icon-radius);
+    color: #fff;
+    border: none ;
+}

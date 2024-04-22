@@ -5,8 +5,9 @@ import Questions from './pages/Questions';
 import Students from './pages/Students.jsx';
 import Login from "./component/auth/Login.jsx";
 import Addquestions from './pages/Addquestions.jsx';
-import EditUserPage from './component/actions/EditUserPage.jsx';
+import EditUserPage from './component/actions/student/EditUserPage.jsx';
 import Settings from './pages/Settings.jsx';
+import Viewuserdata from './component/actions/student/Viewuserdata.jsx';
 
 function App() { 
 
@@ -19,6 +20,7 @@ function App() {
         <Route path="/admin/students" element={<Students/>}/>
         <Route path="/admin/addquestions" element={<Addquestions/>}/>
         <Route path="/admin/student/edit/:userId" element={<EditUserPage/>}  />
+        <Route path="/admin/student/view/:userId" element={<Viewuserdata/>}  />
         <Route path="/admin/settings" element={<Settings/>}  />
     </Routes>
     </>
