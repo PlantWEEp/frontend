@@ -41,7 +41,7 @@ function EditUserPage() {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const token = localStorage.getItem("token");
+        const token = localStorage.getItem("token"); 
         if (!token) {
           navigate("/login");
           return;
@@ -215,10 +215,10 @@ function EditUserPage() {
                           {...register("designation")}
                         />
                       </div>
-                      <div>
+                      {/* <div>
                         <label>UPI Transaction Id:</label>
                         <input
-                          type="text"
+                          type="Number"
                           name="UPItransactionid"
                           onChange={(e) =>
                             setUserData({
@@ -234,7 +234,7 @@ function EditUserPage() {
                             {errors.UPItransactionid.message}
                           </div>
                         )}
-                      </div>
+                      </div> */}
                       <div className="btnn d-flex gap-3 wrap">
                         <button
                           type="button"

@@ -8,6 +8,8 @@ import { FaRegEye } from "react-icons/fa";
 import { FaRegEdit } from "react-icons/fa";
 import axios from "axios";
 import { IoCopyOutline } from "react-icons/io5";
+import Loading from "../component/helper/Loading";
+import Error from "../component/helper/Error";
 
 function Students() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -45,20 +47,23 @@ function Students() {
         setError(error.message);
         setLoading(false);
       });
-  }, [navigate]);
+  }, [studentsData]);
 
   const handleDeleteAll = () => {
     setStudentsData([]);
   };
 
-  const filteredStudents = studentsData.filter((student) => {
-    const searchTermLowerCase = searchTerm.trim().toLowerCase();
-    return Object.values(student).some(
-      (value) =>
-        typeof value === "string" &&
-        value.toLowerCase().includes(searchTermLowerCase)
-    );
-  });
+  let filteredStudents = [];
+  if (Array.isArray(studentsData)) {
+    filteredStudents = studentsData.filter((student) => {
+      const searchTermLowerCase = searchTerm.trim().toLowerCase();
+      return Object.values(student).some(
+        (value) =>
+          typeof value === "string" &&
+          value.toLowerCase().includes(searchTermLowerCase)
+      );
+    });
+  }
 
   //copy clipboard
   const handleCopy = (password) => {
@@ -84,6 +89,54 @@ function Students() {
 
   // Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  // Making a DELETE request to your API endpoint to delete the student
+  const handleDelete = (userId) => {
+    console.log(userId);  
+    const token = localStorage.getItem("token");
+    console.log("tokeeen", "Bearer", token);  
+  
+    // Redirecting to the login page if the token is not present
+    if (!token) {
+      navigate("/login");  
+      return;
+    }
+  
+
+    axios
+      .delete(`/api/v1/student/${userId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,  
+        },
+      })
+      .then((response) => {
+        
+        console.log("Admin profile response:", response.data);
+        setStudentsData(response.data); 
+        setLoading(false); 
+      })
+      .catch((error) => { 
+        console.error("Error fetching student data:", error);
+        setError(error.message);  
+        setLoading(false);  
+      });
+  };
+  
+  if (loading) {
+    return (
+      <div>
+        <Loading loading={loading} />
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div>
+        <Error error={error} />
+      </div>
+    );
+  }
 
   return (
     <>
@@ -160,8 +213,8 @@ function Students() {
                             <Link
                               className="actionEdit"
                               to={`/admin/student/edit/${user._id}`}
-                            >
-                              <FaRegEdit />
+                            > 
+                              <FaRegEdit />  
                             </Link>
                             <Link
                               className="actionEdit"
@@ -169,7 +222,7 @@ function Students() {
                             >
                               <FaRegEye />
                             </Link>
-                            <button className="actionEdit">
+                            <button onClick={() => handleDelete(user._id)} className="actionDelete">
                               <MdDelete />
                             </button>
                           </div>

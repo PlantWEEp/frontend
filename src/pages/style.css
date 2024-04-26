@@ -114,7 +114,13 @@ td {
   border-radius: var(--border-icon-radius);
   color: #000000;
 }
-
+button.actionDelete {
+  padding: 7px 11px;
+  border: 1px solid var(--search-border-color);
+  border-radius: var(--border-icon-radius);
+  color: #ffffff;
+  background-color: var(--danger-red);
+}
 .actionWapper {
   display: flex;
   gap: 7px;
