@@ -8,6 +8,7 @@ import Addquestions from './pages/Addquestions.jsx';
 import EditUserPage from './component/actions/student/EditUserPage.jsx';
 import Settings from './pages/Settings.jsx';
 import Viewuserdata from './component/actions/student/Viewuserdata.jsx';
+import Questionsection from './pages/Questionsection.jsx';
 
 function App() { 
 
@@ -22,6 +23,8 @@ function App() {
         <Route path="/admin/student/edit/:userId" element={<EditUserPage/>}  />
         <Route path="/admin/student/view/:userId" element={<Viewuserdata/>}  />
         <Route path="/admin/settings" element={<Settings/>}  />
+        <Route path="/admin/questionsection" element={<Questionsection/>}  />
+
     </Routes>
     </>
   )
