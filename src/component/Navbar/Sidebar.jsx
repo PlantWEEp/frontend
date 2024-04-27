@@ -14,7 +14,7 @@ import {
 export default function Sidebar() {
   const menubar = [
     { name: "Dashboard", url: "/", icon: "sticky-note" },
-    { name: "List of question", url: "/admin/questions", icon: "list" },
+    { name: "List of question", url: "/admin/questionsection", icon: "list" },
     { name: "List of students", url: "/admin/students", icon: "user" },
   ];
 

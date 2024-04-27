@@ -1,7 +1,6 @@
 import './App.css';
 import { Routes, Route} from 'react-router-dom';
-import Dashboard from './pages/Dashboard';
-import Questions from './pages/Questions';
+import Dashboard from './pages/Dashboard'; 
 import Students from './pages/Students.jsx';
 import Login from "./component/auth/Login.jsx";
 import Addquestions from './pages/Addquestions.jsx';
@@ -16,8 +15,7 @@ function App() {
     <>
     <Routes> 
         <Route path="/login" element={<Login/>}/>
-        <Route path="/" element={<Dashboard/>}/>
-        <Route path="/admin/questions" element={<Questions/>}/>
+        <Route path="/" element={<Dashboard/>}/> 
         <Route path="/admin/students" element={<Students/>}/>
         <Route path="/admin/addquestions" element={<Addquestions/>}/>
         <Route path="/admin/student/edit/:userId" element={<EditUserPage/>}  />

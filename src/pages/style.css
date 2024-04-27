@@ -329,7 +329,23 @@ select.selctVl {
   overflow: auto;
   min-height: 300px;
 }
-
+/* xxxxxxxxxxxxxxxxxxxxxxxxxxxx============================xxxxxxxxxxxxxxxxxxxxxxxxxx */
+.contentSection{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-color: var(--basic-blue);
+  align-items: center;
+  padding: 20px;
+  color: #fff;
+  border-radius: var(--border-small-radius);
+}
+.contentSection h6{
+  margin: 0;
+}
+.contentSection svg {
+  font-size: 25px;
+}
 
 
 

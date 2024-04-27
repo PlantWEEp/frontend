@@ -13,7 +13,6 @@ import Error from "../component/helper/Error";
 
 function Students() {
   const [searchTerm, setSearchTerm] = useState("");
-  const [column, setColumn] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(5);
   const [copied, setCopied] = useState(false);
@@ -47,7 +46,7 @@ function Students() {
         setError(error.message);
         setLoading(false);
       });
-  }, [studentsData]);
+  }, []);
 
   const handleDeleteAll = () => {
     setStudentsData([]);
@@ -91,36 +90,30 @@ function Students() {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   // Making a DELETE request to your API endpoint to delete the student
-  const handleDelete = (userId) => {
-    console.log(userId);  
-    const token = localStorage.getItem("token");
-    console.log("tokeeen", "Bearer", token);  
-  
-    // Redirecting to the login page if the token is not present
-    if (!token) {
-      navigate("/login");  
-      return;
-    }
-  
+const handleDelete = (userId) => {
+  const token = localStorage.getItem("token");
 
-    axios
-      .delete(`/api/v1/student/${userId}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,  
-        },
-      })
-      .then((response) => {
-        
-        console.log("Admin profile response:", response.data);
-        setStudentsData(response.data); 
-        setLoading(false); 
-      })
-      .catch((error) => { 
-        console.error("Error fetching student data:", error);
-        setError(error.message);  
-        setLoading(false);  
-      });
-  };
+  // Redirecting to the login page if the token is not present
+  if (!token) {
+    navigate("/login");
+    return;
+  }
+
+  axios
+    .delete(`/api/v1/student/${userId}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+    .then((response) => {
+      // Update studentsData by filtering out the deleted item
+      setStudentsData(studentsData.filter(student => student._id !== userId));
+    })
+    .catch((error) => {
+      console.error("Error deleting student:", error);
+    });
+};
+
   
   if (loading) {
     return (
