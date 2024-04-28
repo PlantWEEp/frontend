@@ -105,8 +105,7 @@ const handleDelete = (userId) => {
         Authorization: `Bearer ${token}`,
       },
     })
-    .then((response) => {
-      // Update studentsData by filtering out the deleted item
+    .then((response) => { 
       setStudentsData(studentsData.filter(student => student._id !== userId));
     })
     .catch((error) => {

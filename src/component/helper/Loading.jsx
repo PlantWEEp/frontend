@@ -2,7 +2,7 @@ import React from 'react'
 
 function Loading({loading}) {
   return (
-    <div>{loading}</div>
+    <div>loadinf{loading}</div>
   )
 }
 
