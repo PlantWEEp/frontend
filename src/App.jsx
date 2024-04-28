@@ -21,7 +21,7 @@ function App() {
         <Route path="/admin/student/edit/:userId" element={<EditUserPage/>}  />
         <Route path="/admin/student/view/:userId" element={<Viewuserdata/>}  />
         <Route path="/admin/settings" element={<Settings/>}  />
-        <Route path="/admin/questionsection" element={<Questionsection/>}  />
+        <Route path="/admin/category" element={<Questionsection/>}  />
 
     </Routes>
     </>
