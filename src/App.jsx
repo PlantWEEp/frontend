@@ -17,7 +17,7 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/" element={<Dashboard />} />
       <Route path="/admin/students" element={<Students />} />
-      <Route path="/admin/addquestions" element={<Addquestions />} />
+      <Route path="/admin/addquestions" element={<Addquestions />} />45
       <Route path="/admin/student/edit/:userId" element={<EditUserPage />} />
       <Route path="/admin/student/view/:userId" element={<Viewuserdata />} />
       <Route path="/admin/settings" element={<Settings />} />

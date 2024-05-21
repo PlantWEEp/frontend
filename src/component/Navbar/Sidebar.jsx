@@ -21,10 +21,12 @@ export default function Sidebar() {
   return (
     <div style={{ height: "100vh" }}>
       <CDBSidebar style={{ height: "100%" }}>
-        <CDBSidebarHeader prefix={<i className="fa fa-bars" />}>
-          <span className="blue">My</span> Tution{" "}
-          <span className="blue">App</span>
-        </CDBSidebarHeader>
+        <Link to="/" style={{ color: "#000" }}>
+          <CDBSidebarHeader prefix={<i className="fa fa-bars" />}>
+            <span className="blue">My</span> Tution 
+            <span className="blue"> App</span>
+          </CDBSidebarHeader>
+        </Link>
         <CDBSidebarContent>
           <CDBSidebarMenu>
             {menubar.map((item) => (
@@ -39,7 +41,9 @@ export default function Sidebar() {
 
         <CDBSidebarFooter>
           <div className="sidebar-btn-wrapper" style={{ padding: "10px 3px" }}>
-            <Link to="/admin/settings"><CDBSidebarMenuItem icon="cog">Settings</CDBSidebarMenuItem></Link>
+            <Link to="/admin/settings">
+              <CDBSidebarMenuItem icon="cog">Settings</CDBSidebarMenuItem>
+            </Link>
             <CDBSidebarMenuItem icon="sign-out-alt">Logout</CDBSidebarMenuItem>
           </div>
         </CDBSidebarFooter>

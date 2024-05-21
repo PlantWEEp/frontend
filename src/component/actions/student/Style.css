@@ -55,3 +55,8 @@ xxxxxxxxxxxxxxxxxxxxxx*/
     color: #fff;
     border: none ;
 }
+.error-message {
+    color: red !important;
+    font-weight: 700;
+    font-size: 14px;
+}

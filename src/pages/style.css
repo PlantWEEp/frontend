@@ -344,11 +344,14 @@ select.selctVl {
   justify-content: space-between;
   flex-wrap: wrap; 
   margin: 20px 0;
-  background-color: var(--basic-blue);
+  border:1px solid var(--light-blue);
   align-items: center;
   padding: 20px;
-  color: #fff;
+  color: #0c0c0c;
   border-radius: var(--border-small-radius);
+}
+.contentSection:hover{
+  background-color: #e5e5ff;
 }
 .contentSection h6{
   margin: 0;
