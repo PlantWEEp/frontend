@@ -157,9 +157,9 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
   border: 0.6px;
   border-radius: 4px;
   font-size: 14px;
-  font-weight: 700; 
+  font-weight: 700;  
+  color: #000000 !important;
 }
-
 .question-set {
   display: flex;
   justify-content: space-between;

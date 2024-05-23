@@ -61,8 +61,7 @@ export default function Questionsection() {
             <div className="studentdeletebutton">
               <h4>List of Questions</h4>
               <div className="d-flex flex-wrap gap-3 align-items-center">
-                <button  className="Addbutton" to="/admin/addquestions">Add Questions</button>
-                <button className="deletebutton">Delete All Questions</button>
+                <Link  className="Addbutton" to="/admin/addquestions">Add Questions</Link> 
               </div>
             </div>
             {/* Render each question */}
