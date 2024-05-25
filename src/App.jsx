@@ -7,9 +7,8 @@ import Addquestions from './pages/Addquestions.jsx';
 import EditUserPage from './component/actions/student/EditUserPage.jsx';
 import Settings from './pages/Settings.jsx';
 import Viewuserdata from './component/actions/student/Viewuserdata.jsx';
-import Questionsection from './pages/Questionsection.jsx';
-import FilteredcategoryBasic from './component/Questioncategory/FilteredcategoryBasic.jsx';
-import Basic from './component/actions/questions/Basic.jsx';
+import Questionsection from './pages/Questionsection.jsx'; 
+import FilteredCategoryBasic from './component/Questioncategory/FilteredcategoryBasic.jsx';
 
 function App() { 
   return (
@@ -22,8 +21,8 @@ function App() {
       <Route path="/admin/student/view/:userId" element={<Viewuserdata />} />
       <Route path="/admin/settings" element={<Settings />} />
       <Route path="/admin/category" element={<Questionsection />} />
-      <Route path="/admin/category/basic" element={<FilteredcategoryBasic />} />
-      <Route path="/admin/category/:slug" element={<Basic />} />
+      
+      <Route path="/admin/category/:slug" element={<FilteredCategoryBasic/>} />
     </Routes>
   );
 }
