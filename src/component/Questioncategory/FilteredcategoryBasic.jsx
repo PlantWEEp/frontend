@@ -7,11 +7,11 @@ import Error from "../helper/Error";
 import Header from "../Navbar/Header";
 import Sidebar from "../Navbar/Sidebar";
 import { FaLongArrowAltRight } from "react-icons/fa";
+import noquestions from  "../../assets/no-questions.svg"
 
 export default function FilteredCategoryBasic() {
   const navigate = useNavigate();
   const { slug: categoryUrlParam } = useParams();
- 
 
   const [sections, setSections] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -26,28 +26,30 @@ export default function FilteredCategoryBasic() {
           navigate("/login");
           return;
         }
-    
-        const response = await axios.get(`/api/v1/question/allquestion?category=${categoryUrlParam}`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-     
-        const filterCategory = response.data.filter(data => {
+
+        const response = await axios.get(
+          `/api/v1/question/allquestion?category=${categoryUrlParam}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
+        const filterCategory = response.data.filter((data) => {
           return data.category === categoryUrlParam;
         });
         console.log(filterCategory);
-    
- 
+
         const uniqueSectionNames = new Set();
-        const filteredSections = filterCategory.filter(section => { 
+        const filteredSections = filterCategory.filter((section) => {
           if (!uniqueSectionNames.has(section.sectionName)) {
             uniqueSectionNames.add(section.sectionName);
             return true;
           }
           return false;
         });
-    
+
         setSections(filteredSections);
       } catch (error) {
         console.error("Error fetching user data:", error);
@@ -56,8 +58,6 @@ export default function FilteredCategoryBasic() {
         setLoading(false);
       }
     };
-    
-    
 
     fetchQuestions();
   }, [navigate, categoryUrlParam]);
@@ -81,24 +81,46 @@ export default function FilteredCategoryBasic() {
       <div className="primarycontainer">
         <div className="containerWapper">
           <div className="studentdeletebutton">
-            <h4>{categoryUrlParam} Questions List</h4>
-            <div className="d-flex flex-wrap gap-3 align-items-center">
-              <button className="deletebutton">Delete All Questions</button>
-            </div>
+            <h4 className="text-capitalize">
+              {categoryUrlParam} Questions List
+            </h4>
+            <div className="d-flex flex-wrap gap-3 align-items-center"></div>
           </div>
           <div className="container11">
-            {sections.map((section, index) => (
-              <Link to={`/${section.category}/question/${section.sectionName}`} key={index}>
-                <div className="contentSection">
-                  <div>
-                    <h6>{section.sectionName}</h6>
-                  </div>
-                  <div className="d-flex gap-3">
-                    <FaLongArrowAltRight />
-                  </div>
+            {sections.length === 0 ? (
+              <>
+               <div className="noQuestions">
+               <p>
+                <div className="imageNodata">
+               <img src={noquestions} alt="No Questions" />
                 </div>
-              </Link>
-            ))}
+                 <h5 className="my-4"> Currently there are no questions added in the {categoryUrlParam} category</h5>
+                </p>
+                <div className="twobtn">
+                <Link className="Addbutton" to="/admin/addquestions">Add Questions</Link>
+                <Link className="goback" to="/admin/category">Go Back</Link>
+                  </div>
+               </div>
+              </>
+            ) : (
+              sections.map((section, index) => (
+                <Link
+                  to={`/question/${
+                    section.category
+                  }/${section.sectionName.replace(/\s+/g, "-")}`}
+                  key={index}
+                >
+                  <div className="contentSection">
+                    <div>
+                      <h6>{section.sectionName}</h6>
+                    </div>
+                    <div className="d-flex gap-3">
+                      <FaLongArrowAltRight />
+                    </div>
+                  </div>
+                </Link>
+              ))
+            )}
           </div>
         </div>
       </div>

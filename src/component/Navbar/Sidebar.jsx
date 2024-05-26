@@ -1,6 +1,6 @@
-// Sidebar.jsx
 import React from "react";
-import { Link } from "react-router-dom"; // Import Link
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 import "./Style.css";
 import {
   CDBSidebar,
@@ -12,6 +12,31 @@ import {
 } from "cdbreact";
 
 export default function Sidebar() {
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        navigate("/login");
+        return;
+      }
+      await axios.post(
+        '/api/v1/admin/logout',
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      localStorage.removeItem("token");
+      navigate("/login");
+    } catch (error) {
+      console.error("Error logging out:", error);
+    }
+  };
+
   const menubar = [
     { name: "Dashboard", url: "/", icon: "sticky-note" },
     { name: "List of question", url: "/admin/category", icon: "list" },
@@ -44,7 +69,9 @@ export default function Sidebar() {
             <Link to="/admin/settings">
               <CDBSidebarMenuItem icon="cog">Settings</CDBSidebarMenuItem>
             </Link>
-            <CDBSidebarMenuItem icon="sign-out-alt">Logout</CDBSidebarMenuItem>
+            <CDBSidebarMenuItem icon="sign-out-alt" onClick={handleLogout}>
+              Logout
+            </CDBSidebarMenuItem>
           </div>
         </CDBSidebarFooter>
       </CDBSidebar>

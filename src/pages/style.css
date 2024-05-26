@@ -196,10 +196,7 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
   width: 100%;
   margin-right: 30px;
 } 
-
-.listofquestions{
-  margin-left: 30px;
-} 
+ 
 
 .selectCategory{
   font-size: 14px;
@@ -228,8 +225,8 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
 
 .sectionName select.form-select {
   width: 100%;
-  padding: 14px;
-  margin-top: 18px;
+  padding: 11px;
+  margin-top: 4px;
   border-radius: var(--border-icon-radius) !important;
 }
 .labelfor{

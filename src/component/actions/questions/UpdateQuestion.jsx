@@ -1,35 +1,50 @@
-import React, { useEffect, useState } from "react";
-import Header from "../component/Navbar/Header";
-import Sidebar from "../component/Navbar/Sidebar"; 
-import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
-import Loading from "../component/helper/Loading";
-import Error from "../component/helper/Error";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import React, { useState, useEffect } from "react";
+import { useNavigate, useLocation, Link } from "react-router-dom";
+import axios from "axios"; 
+import Loading from "../../helper/Loading";
+import Error from "../../helper/Error";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css"; 
+import Header from "../../Navbar/Header";
+import Sidebar from "../../Navbar/Sidebar";
 
-export default function Addquestions() {
+function UpdateQuestion() {
   const navigate = useNavigate();
-  const [loading, setLoading] = useState(true);
+  const location = useLocation();
+  const { section } = location.state || {};
+
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [questionData, setQuestionData] = useState({
-    sectionName: "",
-    question: "",
-    choices: [
-      { value: "", isCorrect: true },
-      { value: "", isCorrect: false },
-      { value: "", isCorrect: false },
-      { value: "", isCorrect: false }
-    ],
-    description: "",
-    category: ""
-  });
+  const [questionData, setQuestionData] = useState(section || {});
 
   useEffect(() => {
-    setLoading(false);
-  }, []);
+    if (!section) {
+      navigate("/question/");
+    }
+  }, [section, navigate]);
 
-  const handleInputChange = (e) => {
+  const updateQuestion = async (data) => {
+    try {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        navigate("/login");
+        return;
+      }
+      const response = await axios.put(`/api/v1/question/${section._id}`, data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      console.log(response.data); 
+      toast.success('Question updated successfully!');
+    } catch (error) {
+      console.error("Error updating user data:", error.message);
+      setError(error.message);
+      toast.error('Error updating question');
+    }
+  };
+
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setQuestionData((prevData) => ({
       ...prevData,
@@ -38,60 +53,18 @@ export default function Addquestions() {
   };
 
   const handleChoiceChange = (index, e) => {
-    const { value } = e.target;
-    const newChoices = questionData.choices.map((choice, i) =>
-      i === index ? { ...choice, value } : choice
-    );
+    const newChoices = [...questionData.choices];
+    newChoices[index].value = e.target.value;
     setQuestionData((prevData) => ({
       ...prevData,
       choices: newChoices,
     }));
   };
 
-  const handleCorrectAnswerChange = (e) => {
-    const { value } = e.target;
-    const newChoices = questionData.choices.map((choice) =>
-      choice.value === value
-        ? { ...choice, isCorrect: true }
-        : { ...choice, isCorrect: false }
-    );
-    setQuestionData((prevData) => ({
-      ...prevData,
-      choices: newChoices,
-    }));
-  };
-
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    try {
-      const token = localStorage.getItem("token");
-      if (!token) {
-        navigate("/login");
-        return;
-      }
-      await axios.post("/api/v1/question/add-questions", questionData, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      toast.success("Question added successfully!");
-      setQuestionData({
-        sectionName: "",
-        question: "",
-        choices: [
-          { value: "", isCorrect: true },
-          { value: "", isCorrect: false },
-          { value: "", isCorrect: false },
-          { value: "", isCorrect: false }
-        ],
-        description: "",
-        category: ""
-      });
-    } catch (error) {
-      console.error("Error submitting question:", error);
-      setError(error.message);
-      toast.error("error : ",error);
-    }
+    setLoading(true);
+    updateQuestion(questionData);
   };
 
   if (loading) {
@@ -101,9 +74,9 @@ export default function Addquestions() {
   if (error) {
     return <Error error={error} />;
   }
-  
+
   return (
-    <>
+    <>  
       <div>
         <div className="top-bar">
           <Header />
@@ -126,7 +99,7 @@ export default function Addquestions() {
                         name="sectionName"
                         placeholder="Add section name"
                         value={questionData.sectionName}
-                        onChange={handleInputChange}
+                        onChange={handleChange}
                         required
                       />
                     </div>
@@ -135,7 +108,7 @@ export default function Addquestions() {
                         className="form-select"
                         name="category"
                         value={questionData.category}
-                        onChange={handleInputChange}
+                        onChange={handleChange}
                         required
                       >
                         <option value="">Select Category</option>
@@ -152,7 +125,7 @@ export default function Addquestions() {
                     name="question"
                     placeholder="Please add the questions here"
                     value={questionData.question}
-                    onChange={handleInputChange}
+                    onChange={handleChange}
                     required
                   />
                 </div>
@@ -162,7 +135,7 @@ export default function Addquestions() {
                     name="description"
                     placeholder="Please add the description" 
                     value={questionData.description}
-                    onChange={handleInputChange}
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="row sectionName">
@@ -183,7 +156,7 @@ export default function Addquestions() {
                 </div>
                 <div className="submitcancelbutton">
                   <button className="submitbutton" type="submit">
-                    Submit
+                    Update
                   </button>
                   <Link to="/admin/category" className="cancelbutton">
                     Cancel
@@ -195,6 +168,8 @@ export default function Addquestions() {
         </div>
         <ToastContainer />
       </div>
-    </>
+    </> 
   );
 }
+
+export default UpdateQuestion;

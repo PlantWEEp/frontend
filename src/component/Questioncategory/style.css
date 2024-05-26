@@ -1,0 +1,65 @@
+.accordion-body {
+    background: #cfe2ff;
+    border-top: 3px solid #fff;
+}
+button.accordion-button {
+    font-weight: 800;
+}
+ul.ListChoice {
+    list-style: none;
+}
+ul.ListChoice {
+    padding: 0;
+    margin: 16px 13px;
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+li.correct-choice {
+    background: #bcffbc;
+    padding: 9px 36px;
+    border-radius: 5px;
+}
+li.incorrect-choice {
+    background: #ffbcbc;
+    padding: 9px 36px;
+    border-radius: 5px;
+}
+.wapperAccordion {
+    display: flex;
+    width: 100% !important;
+    align-items: center;
+    justify-content: space-between;
+}
+.deleteAccordion {
+    margin-right: 20px;
+}
+.accordion-button:focus{
+    box-shadow:none !important;
+}
+.imageNodata img {
+    width: 28% !important;
+}
+.noQuestions {
+    text-align: center;
+}
+.twobtn{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.goback{
+    padding: 14px 25px !important;
+    background-color: #b4b4b4;
+    border: 0.6px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #000000 !important;
+}
+.actionEditqq {
+    padding: 9px 12px;
+    color: #000000;
+    background-color: #fff5a6;
+    margin-left: 10px;
+}

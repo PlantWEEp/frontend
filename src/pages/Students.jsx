@@ -143,9 +143,9 @@ const handleDelete = (userId) => {
           <div className="containerWapper">
             <div className="studentdeletebutton">
               <h4>List of Students</h4>
-              <button className="deletebutton" onClick={handleDeleteAll}>
+              {/* <button className="deletebutton" onClick={handleDeleteAll}>
                 Delete All Students
-              </button>
+              </button> */}
             </div>
             <div className="container11">
               <div className="headersearch">

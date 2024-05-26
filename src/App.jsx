@@ -9,6 +9,8 @@ import Settings from './pages/Settings.jsx';
 import Viewuserdata from './component/actions/student/Viewuserdata.jsx';
 import Questionsection from './pages/Questionsection.jsx'; 
 import FilteredCategoryBasic from './component/Questioncategory/FilteredcategoryBasic.jsx';
+import Questionslist from './component/Questioncategory/Questionslist.jsx';
+import UpdateQuestion from './component/actions/questions/UpdateQuestion.jsx';
 
 function App() { 
   return (
@@ -21,8 +23,9 @@ function App() {
       <Route path="/admin/student/view/:userId" element={<Viewuserdata />} />
       <Route path="/admin/settings" element={<Settings />} />
       <Route path="/admin/category" element={<Questionsection />} />
-      
       <Route path="/admin/category/:slug" element={<FilteredCategoryBasic/>} />
+      <Route path="/question/:category/:sectionName" element={<Questionslist/>} />
+      <Route path ="admin/question/edit/:sectionid" element={<UpdateQuestion/>} />
     </Routes>
   );
 }
