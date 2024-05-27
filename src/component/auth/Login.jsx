@@ -36,6 +36,9 @@ export default function Login() {
       setLoading(true);
       const response = await axios.post('/api/v1/admin/login', data);
       const jwt = response.data.token;
+      if (!jwt) {
+        throw new Error('No JWT token received from server');
+      }
       axios.defaults.headers.common['Authorization'] = `Bearer ${jwt}`; 
       localStorage.setItem("token", jwt);
       console.log("jwt", jwt);
@@ -43,10 +46,11 @@ export default function Login() {
       navigate("/");
       reset();  
     } catch (error) {
-      console.error('Login failed:', error.response.data.message);
+      console.error('Login failed:', error.message || error);
       setLoading(false); 
     }
   };
+  
 
 
   return (
