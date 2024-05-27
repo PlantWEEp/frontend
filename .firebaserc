@@ -1,0 +1,9 @@
+{
+  "projects": {
+    "staging": "learning-app-demo-d7fd8",
+    "default": "learning-app-demo-d7fd8"
+  },
+  "targets": {},
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
+}
